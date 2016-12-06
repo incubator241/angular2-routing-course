@@ -9,9 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var auth_service_1 = require('./auth.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(auth) {
+        this.auth = auth;
         this.message = 'This is the sample message.';
+        console.log(auth);
     }
     AppComponent = __decorate([
         core_1.Component({
@@ -19,7 +22,7 @@ var AppComponent = (function () {
             styles: ["\n    .active   {\n      color: #FFF !important;\n    }\n  "],
             templateUrl: './app/app.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [auth_service_1.Auth])
     ], AppComponent);
     return AppComponent;
 }());

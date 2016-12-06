@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
+import { HttpModule } from '@angular/http';
+import { Auth } from './auth.service';
+import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
 import { FormsModule } from '@angular/forms';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { appRouting } from './app.routing';
@@ -11,19 +15,22 @@ import { AuthGuard } from './shared/guards/auth-guard.service';
 import { CanDeactivateGuard } from './shared/guards/can-deactivate-guard.service';
 
 @NgModule({
-  imports: [ 
-    BrowserModule, 
+  imports: [
+    BrowserModule,
     FormsModule,
     appRouting,
-    DashboardModule
+    DashboardModule,
+    HttpModule
   ],
-  declarations: [ 
+  declarations: [
     AppComponent,
     HomeComponent,
     ContactComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FileSelectDirective
   ],
   providers: [
+    AUTH_PROVIDERS,Auth,
     AuthGuard,
     CanDeactivateGuard
   ],

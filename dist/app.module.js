@@ -10,6 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var angular2_jwt_1 = require('angular2-jwt');
+var http_1 = require('@angular/http');
+var auth_service_1 = require('./auth.service');
+var ng2_file_upload_1 = require('ng2-file-upload/ng2-file-upload');
 var forms_1 = require('@angular/forms');
 var dashboard_module_1 = require('./dashboard/dashboard.module');
 var app_routing_1 = require('./app.routing');
@@ -28,15 +32,18 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 app_routing_1.appRouting,
-                dashboard_module_1.DashboardModule
+                dashboard_module_1.DashboardModule,
+                http_1.HttpModule
             ],
             declarations: [
                 app_component_1.AppComponent,
                 home_component_1.HomeComponent,
                 contact_component_1.ContactComponent,
-                not_found_component_1.NotFoundComponent
+                not_found_component_1.NotFoundComponent,
+                ng2_file_upload_1.FileSelectDirective
             ],
             providers: [
+                angular2_jwt_1.AUTH_PROVIDERS, auth_service_1.Auth,
                 auth_guard_service_1.AuthGuard,
                 can_deactivate_guard_service_1.CanDeactivateGuard
             ],

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Auth } from './auth.service';
 
 @Component({
   selector: 'my-app',
@@ -10,5 +11,8 @@ import { Component } from '@angular/core';
   templateUrl: './app/app.component.html'
 })
 export class AppComponent {
+  constructor(private auth: Auth) {
+  console.log(auth);
+  }
   message = 'This is the sample message.';
 }

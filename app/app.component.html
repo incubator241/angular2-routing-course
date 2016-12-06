@@ -3,7 +3,7 @@
   <div class="container-fluid">
 
     <div class="navbar-header">
-      <a routerLink="/" routerLinkActive="active" 
+      <a routerLink="/" routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }" class="navbar-brand">
         My Routing App
       </a>
@@ -13,11 +13,13 @@
       <li><a routerLink="/" routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
       <li><a routerLink="/about" routerLinkActive="active" >About</a></li>
-      <li><a routerLink="/contact" routerLinkActive="active" >Contact</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" >Profile</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
       <li><a routerLink="/dashboard">Dashboard</a></li>
+        <li><a  (click)="auth.login()" *ngIf="!auth.authenticated()">Login</a></li>
+          <li><a  (click)="auth.logout()" *ngIf="auth.authenticated()">Logout</a></li>
     </ul>
 
   </div>
